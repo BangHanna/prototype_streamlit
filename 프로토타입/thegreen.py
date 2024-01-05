@@ -333,7 +333,6 @@ if tabs == "통합 대시보드":
             
 # ---------------------------------------------------------------------------------     
 elif tabs == "에너지 낭비 건물 모니터링":
-    st.caption("🌏 Green Remodeling")
     st.header('에너지 낭비 건물 모니터링')
     # st.markdown("""---""")
     st.title('') # 디자인을 위한 공백 추가
@@ -350,9 +349,7 @@ elif tabs == "에너지 낭비 건물 모니터링":
                                  label_visibility = 'collapsed')
         with col1110:
             st.write('**공공건축물 여부**')
-            public = st.selectbox('공공건축물 여부',['예','아니요'], label_visibility = 'collapsed')
-            if public == '아니요':
-                st.write("사업 대상이 아닙니다")
+            public = st.selectbox('건축물 분류',['공공','민간'], label_visibility = 'collapsed')
         
         with col1111:
             st.write('**리모델링 여부**')
@@ -361,7 +358,7 @@ elif tabs == "에너지 낭비 건물 모니터링":
         col1130, col1131= st.columns([0.4,0.2])
         with col1130:
             st.write('**주사용용도명**')
-            usage = st.multiselect('주사용용도', ['어린이집', '보건소', '의료기관', '파출소', '경로당', '도서관'], ['어린이집', '보건소', '의료기관', '파출소', '경로당', '도서관'],label_visibility = 'collapsed')
+            usage = st.multiselect('주사용용도', ['어린이집', '보건소', '의료기관', '파출소', '경로당', '도서관','기타'], ['어린이집', '보건소', '의료기관', '파출소', '경로당', '도서관','기타'],label_visibility = 'collapsed')
         with col1131:
             st.write('**지역구**')
             location = st.multiselect('지역구',['강남구','강동구','강북구', '강서구', '관악구','광진구','구로구','금천구', '노원구','도봉구','동대문구',
@@ -373,7 +370,8 @@ elif tabs == "에너지 낭비 건물 모니터링":
     if st.button('추출'):
         col200, col201 = st.columns([0.3, 0.2])
         with col200:
-            map_data = data.loc[(data['그린리모델링진행'] == remodeling) & (data['구 이름'].isin(location)) & (data['통합용도명'].isin(usage))
+            map_data = data.loc[(data['건축물분류'] == public) &(data['그린리모델링진행'] == remodeling) 
+                                & (data['구 이름'].isin(location)) & (data['통합용도명'].isin(usage))
                                & (data['사용승인 연도']>=min_date)& (data['사용승인 연도']<=max_date)]
             if len(map_data) == 0:
                 st.info('조건에 맞는 데이터가 없습니다')
@@ -386,11 +384,11 @@ elif tabs == "에너지 낭비 건물 모니터링":
                         <body>
                             <table style="height: 380px; width: 330px;">  <tbody> <tr>
                             <td class="width: 170px;" colspan="2" rowspan="8">
-                            <button type="button" onclick="location.href=
-                            'https://map.kakao.com/link/roadview/{},{}'">""".format(row['위도'], row['경도'])+"""
-                            <img src=https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                            style = 'width: 140px; height: 180px;'/>
-                            </button>
+                                <button type="button">
+                                    <img src='https://github.com/jungrad8774/building_photo/blob/main/{}.png?raw=true' 
+                                    style='width: 140px; height: 180px;'""".format(row['사용승인일'])+"""
+                                        onclick="location.href='https://map.kakao.com/link/roadview/{},{}'">""".format(row['위도'],row['경도'])+"""
+                                </button>
                             </div></td>
                               <td style="width: 60px;background-color: #2A799C;">
                             <div style="color: #ffffff;font-size:11px;text-align:center;">건물명</div></td>
@@ -408,7 +406,7 @@ elif tabs == "에너지 낭비 건물 모니터링":
                           </tr>
                           <tr>
                             <td style="width: 60px;background-color: #2A799C;">
-                            <div style="color: #ffffff;font-size:11px;text-align:center;">사용승인연도</div></td>
+                            <div style="color: #ffffff;font-size:11px;text-align:center;">승인연도</div></td>
                             <td style="width: 100px;font-size:11px;background-color: #C5DCE7;">{}</td>""".format(row['사용승인 연도'])+"""
                           </tr>
                           <tr>
@@ -466,7 +464,7 @@ elif tabs == "에너지 낭비 건물 모니터링":
                           <tr>
                             <th style="background-color: #2A799C;" colspan="4">
                             <div style="color: #ffffff;text-align:center;">
-                            <a href="https://thegreenmail.streamlit.app//" target="_blank">공문 보내기</a>
+                            <a href="https://thegreenmail.streamlit.app/" target="_blank">공문 보내기</a>
                         </tbody > </table>
                     </body>
                     </html> """
@@ -484,9 +482,9 @@ elif tabs == "에너지 낭비 건물 모니터링":
             st.write("**▪ 컬럼을 눌러 정렬 기준을 선택하세요**")
             st.dataframe(map_data.sort_values(by = '탄소/연면적', ascending = False), height =390, hide_index=True)
             
-            
-            
-            
+
+
+
 # --------------------------------------------------------------------------------- 
 elif tabs == "리모델링 사업 현황 모니터링":
     st.caption("🌏 Green Remodeling")
