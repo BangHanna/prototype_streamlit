@@ -183,7 +183,7 @@ def map_heat_seoul_guo(year_n3, month_n3):
 st.set_page_config(layout="wide")
 
 # https://fonts.google.com/icons : 아이콘
-st.caption("🌏 Green Remodeling")
+# st.caption("🌏 Green Remodeling")
 st.markdown('<style>' + open('프로토타입/style.css').read() + '</style>', unsafe_allow_html=True)
 st.sidebar.image('프로토타입/green2.png')
 with st.sidebar:
@@ -332,6 +332,7 @@ if tabs == "통합 대시보드":
             
 # ---------------------------------------------------------------------------------     
 elif tabs == "에너지 낭비 건물 모니터링":
+    st.caption("🌏 Green Remodeling")
     st.header('에너지 낭비 건물 모니터링')
     # st.markdown("""---""")
     st.title('') # 디자인을 위한 공백 추가
@@ -487,6 +488,7 @@ elif tabs == "에너지 낭비 건물 모니터링":
             
 # --------------------------------------------------------------------------------- 
 elif tabs == "리모델링 사업 현황 모니터링":
+    st.caption("🌏 Green Remodeling")
     st.header('리모델링 사업 현황 모니터링')
     # st.markdown("""---""")
     st.title('')
@@ -605,7 +607,7 @@ elif tabs == "리모델링 사업 현황 모니터링":
             
 # ---------------------------------------------------------------------------------           
 elif tabs == "탄소배출량 추이 모니터링":
-
+    st.caption("🌏 Green Remodeling")
     st.header('탄소배출량 추이 모니터링')
     # st.markdown("""---""")
     st.title('')
