@@ -49,7 +49,7 @@ if menu == '로그인':
             
             ######## 로그인시 url로 다음 페이지 버튼 생성 ###### URL을 변경해두면 됩니다!! 
             st.image('https://images.pexels.com/photos/1230157/pexels-photo-1230157.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', use_column_width='always')
-            st.link_button('Green Energy Check Page','http://localhost:8502')   #http://localhost:8502
+            st.link_button('Green Energy Check Page','https://thegreen.streamlit.app/')   #http://localhost:8502
 
         else:
             st.sidebar.write('로그인에 실패했습니다.')
