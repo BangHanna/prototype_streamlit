@@ -257,7 +257,8 @@ df_grouped['연도'] = df_grouped['연도'].astype(str)
     
 # --------------------------------------------------------------------------------- 
 if tabs == "통합 대시보드":
-    st.markdown('### ▸ 통합 대시보드')
+    st.subheader('▸ 통합 대시보드')
+    st.caption("""---""")
     outer_cols = st.columns([0.6,0.3])
     with outer_cols[0]:
             inner_cols = st.columns([0.6, 0.4])
