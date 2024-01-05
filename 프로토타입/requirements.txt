@@ -3,3 +3,4 @@ streamlit-nested-layout
 geopandas
 leafmap
 folium
+streamlit_folium
