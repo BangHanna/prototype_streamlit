@@ -386,7 +386,7 @@ elif tabs == "에너지 낭비 건물 모니터링":
                                 <button type="button">
                                     <img src='https://github.com/jungrad8774/building_photo/blob/main/{}.png?raw=true' 
                                     style='width: 140px; height: 180px;'""".format(row['사용승인일'])+"""
-                                        # onclick="location.href='https://map.kakao.com/link/roadview/{},{}'">""".format(row['위도'],row['경도'])+"""
+                                        
                                         onclick="location.href='https://google.com'">""".format(row['위도'],row['경도'])+"""
                                 </button>
                             </div></td>
