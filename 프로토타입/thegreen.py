@@ -48,7 +48,7 @@ import leafmap.foliumap as leafmapf
 ###### 서울지역의 구별 시각화 함수 ver.1
 def map_basic_seoul_guo(year_n, month_n, lat=37.547367457666454, long=127.0105791091919): 
     #전체 데이터 파일 불러오기
-    seoul_whole = pd.read_csv('프로토타입/프로토타입서울시DB.csv',encoding='utf-8')
+    seoul_whole = pd.read_csv('프로토타입/시연영상용서울시DB.csv',encoding='utf-8')
     
     # 지도 받아오기 
     r_guo = requests.get('https://raw.githubusercontent.com/southkorea/seoul-maps/master/kostat/2013/json/seoul_municipalities_geo_simple.json')
@@ -91,7 +91,7 @@ def map_basic_seoul_guo(year_n, month_n, lat=37.547367457666454, long=127.010579
 ########## 서울시 동별 시각화 함수 ver2
 def map_basic_seoul_dong(year_n2, month_n2, lat=37.547367457666454, long=127.0105791091919 ): 
     # 데이터 파일 불러오기
-    seoul_whole = pd.read_csv('프로토타입/프로토타입서울시DB.csv',encoding='utf-8')
+    seoul_whole = pd.read_csv('프로토타입/시연영상용서울시DB.csv',encoding='utf-8')
     
     # 서울 행정동  json raw파일(githubcontent)
     r_dong = requests.get('https://raw.githubusercontent.com/southkorea/seoul-maps/master/kostat/2013/json/seoul_submunicipalities_geo_simple.json')
