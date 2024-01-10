@@ -630,9 +630,9 @@ elif tabs == "탄소배출량 추이 모니터링":
                 if option == 'Map':  
                     select_gd = st.radio(label = 'Radio buttons', options = ['구', '동'], label_visibility='collapsed')   
                     if select_gd =='구':
-                        st.sidebar.image('프로토타입/탄소배출현황_구별맵.png')   
+                        st.image('프로토타입/탄소배출현황_구별맵.png')   
                     else : 
-                        st.sidebar.image('프로토타입/탄소배출현황_동별맵.png')                             
+                        st.image('프로토타입/탄소배출현황_동별맵.png')                             
                     
                        
                 elif option =='Heat Map' :
