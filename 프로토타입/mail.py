@@ -6,7 +6,7 @@ body = "\t1. 그린뉴딜 사업으로 진행되는 공공건축물 그린리모
 ####이메일 공문 보내기 : 차후 개발 예정 ------------------------------
 import smtplib
 from email.mime.text import MIMEText
-st.header('2022 공공건축물 리모델링사업 공문 전송') 
+st.header('2024 공공건축물 리모델링사업 공문 전송') 
 st.markdown('🚀Enter your email, subject, and email body then hit send to receive an email from')
 # 
 # Taking inputs
