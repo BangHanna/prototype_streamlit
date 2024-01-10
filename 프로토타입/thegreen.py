@@ -44,8 +44,6 @@ import leafmap.foliumap as leafmapf
 # Latitude : 37.547367457666454
 # Longitude : 127.0105791091919
 
-###############################################################################
-###### 서울지역의 구별 시각화 함수 ver.1
 def map_basic_seoul_guo(year_n, month_n, lat=37.547367457666454, long=127.0105791091919): 
     #전체 데이터 파일 불러오기
     seoul_whole = pd.read_csv('프로토타입/시연영상용서울시DB.csv',encoding='utf-8')
