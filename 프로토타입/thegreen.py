@@ -630,10 +630,10 @@ elif tabs == "탄소배출량 추이 모니터링":
                 if option == 'Map':  
                     select_gd = st.radio(label = 'Radio buttons', options = ['구', '동'], label_visibility='collapsed')   
                     if select_gd =='구':
-                        map_basic_seoul_guo(year_nu, month_nu)   
+                        st.sidebar.image('프로토타입/탄소배출현황_구별맵.png')   
                     else : 
-                        map_basic_seoul_dong(year_nu, month_nu)                              
-                    st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True) 
+                        st.sidebar.image('프로토타입/탄소배출현황_동별맵.png')                             
+                    
                        
                 elif option =='Heat Map' :
                     st.write(' 2023년도 12월 기준 : 최다 탄소 배출 지역 ')
